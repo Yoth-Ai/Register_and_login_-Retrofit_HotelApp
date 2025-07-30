@@ -1,30 +1,41 @@
-# ✅ Ignore build/system/IDE-specific files
+# Gradle
 .gradle/
-.idea/
 build/
-local.properties
-*.iml
-
-# ✅ Ignore OS-generated files
-.DS_Store
-
-# ✅ Ignore Android build outputs
 **/build/
-**/captures/
 
-# ✅ Ignore signing/keys
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Signing files
 *.jks
 *.keystore
 
-# ✅ Ignore test reports
-**/reports/
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
 
-# Android Studio
-/build
-/local.properties
+# Mac OS
+.DS_Store
 
-# APKs
-*.apk
+# Android Studio Navigation Editor temp files
+.navigation/
 
-# OS files
-Thumbs.db
+# Log/Cache
+*.log
+.cxx/
+.externalNativeBuild/
+
+# Google Services
+google-services.json
+
+# Node / other junk
+node_modules/
+
+# Backup
+*.bak
+*.swp
+
+# Kotlin specific
+*.kotlin_module
