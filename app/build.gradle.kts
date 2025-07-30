@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
 }
@@ -13,7 +15,18 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        val localProperties = rootProject.file("local.properties")
+        val properties = Properties()
+        properties.load(localProperties.inputStream())
+        val apiUrl = properties["API_URL"] as String
+        buildConfigField("String", "BASE_URL", "\"$apiUrl\"")
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // ✅ ADD THIS BLOCK
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
@@ -25,6 +38,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -32,12 +46,12 @@ android {
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }
