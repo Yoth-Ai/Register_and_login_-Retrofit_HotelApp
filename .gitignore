@@ -1,15 +1,30 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# ✅ Ignore build/system/IDE-specific files
+.gradle/
+.idea/
+build/
 local.properties
+*.iml
+
+# ✅ Ignore OS-generated files
+.DS_Store
+
+# ✅ Ignore Android build outputs
+**/build/
+**/captures/
+
+# ✅ Ignore signing/keys
+*.jks
+*.keystore
+
+# ✅ Ignore test reports
+**/reports/
+
+# Android Studio
+/build
+/local.properties
+
+# APKs
+*.apk
+
+# OS files
+Thumbs.db
